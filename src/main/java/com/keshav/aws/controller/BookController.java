@@ -24,7 +24,7 @@ public class BookController {
 	}
 	
 	@GetMapping("/books")
-	public Book getAllBooks(@RequestParam("bookID") int bookID)
+	public Book getBookByID(@RequestParam("bookID") int bookID)
 	{
 		return bookRepo.getAllBooks().stream().filter(e -> e.getBookID()==bookID).findAny().get();
 		
