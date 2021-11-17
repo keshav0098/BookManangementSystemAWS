@@ -12,21 +12,21 @@ import com.keshav.aws.util.Book;
 
 @RestController
 public class BookController {
-
+	// Deploy to codebuid aws
 	@Autowired
 	private BookRepository bookRepo;
-	
+
 	@GetMapping("/books")
 	public List<Book> getAllBooks()
 	{
 		return bookRepo.getAllBooks();
-		
+
 	}
-	
+
 	@GetMapping("/books")
 	public Book getBookByID(@RequestParam("bookID") int bookID)
 	{
 		return bookRepo.getAllBooks().stream().filter(e -> e.getBookID()==bookID).findAny().get();
-		
+
 	}
 }
