@@ -1,5 +1,6 @@
 package com.keshav.aws.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,15 @@ public class BookController {
 
 	}
 	
+	@GetMapping("/welcome")
+	public String welcomeMessage()
+	{
+		
+		return "Wecome to book management system !!";
+	}
+	
 	@GetMapping("/books/{id}")
-	public Book getAllBooks(@PathVariable("id") int id)
+	public Book getBookByID(@PathVariable("id") int id)
 	{
 		return bookRepo.getAllBooks().stream().filter(e -> e.getBookID()==id).findAny().get();
 
